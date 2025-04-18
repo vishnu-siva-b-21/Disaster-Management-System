@@ -1,0 +1,428 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Astral Foundation</title>
+
+    <!-- CSS FILES -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&family=Open+Sans&display=swap"
+        rel="stylesheet">
+
+    <link href="{{ url_for('static', filename='main/styles/bootstrap.min.css') }}" rel="stylesheet">
+
+    <link href="{{ url_for('static', filename='main/styles/bootstrap-icons.css') }}" rel="stylesheet">
+
+    <link href="{{ url_for('static', filename='main/styles/templatemo-topic-listing.css') }}" rel="stylesheet">
+
+</head>
+
+<body id="top">
+
+    <main>
+
+        <nav class="navbar navbar-expand-lg">
+            <div class="container">
+                <a class="navbar-brand" href="#">
+                    <i class="bi-back"></i>
+                    <span>Astral Foundation</span>
+                </a>
+
+                <div class="d-lg-none ms-auto me-4">
+                    <a href="#top" class="navbar-icon bi-person smoothscroll"></a>
+                </div>
+
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-lg-5 me-lg-auto">
+                        <li class="nav-item">
+                            <a class="nav-link click-scroll" href="#section_1">Home</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link click-scroll" href="#section_2">Our Action</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link click-scroll" href="#section_3">How it works</a>
+                        </li>
+
+
+
+                        <li class="nav-item">
+                            <a class="nav-link click-scroll" href="#section_4">Contact</a>
+                        </li>
+
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+                                Are You?
+                            </a>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item" href="{{ url_for('sub_admin.sub_admin_login') }}">Secondary
+                                    admin</a>
+                                <a class="dropdown-item" href="{{ url_for('vol.vol_dash') }}">Volunteer</a>
+                                <a class="dropdown-item" href="{{ url_for('org.org_dash') }}">Organization</a>
+                            </div>
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+
+        <section class="hero-section d-flex justify-content-center align-items-center" id="section_1">
+            <div class="container">
+                <div class="row">
+
+                    <div class="col-lg-8 col-12 mx-auto">
+                        <h1 class="text-white text-center">Unite. Help. Grow</h1>
+
+                        <h6 class="text-center">Platform Where We All Come Together</h6>
+
+
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+
+        <section class="featured-section">
+            <div class="container">
+                <div class="row justify-content-center">
+
+                    <div class="col-lg-4 col-12 mb-4 mb-lg-0">
+                        <div class="custom-block bg-white shadow-lg">
+                            <a href="#">
+                                <div class="d-flex">
+                                    <div>
+                                        <h5 class="mb-2">Astral tech</h5>
+
+                                        <p class="mb-0">Harnessing advanced technology to swiftly aid victims of natural disasters. Our mission is to save lives and alleviate suffering through innovative solutions and rapid response.We're dedicated to making a difference when it matters most..</p>
+                                    </div>
+
+
+                                </div>
+                                <img src="{{ url_for('static', filename='main/images/topics/hands.png') }}"
+                                    class="custom-block-image img-fluid" alt="">
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6 col-12">
+                        <div class="custom-block custom-block-overlay">
+                            <div class="d-flex flex-column h-100">
+                                <img src="{{ url_for('static', filename='main/images/topics/earthquake.jpg') }}"
+                                    class="custom-block-image img-fluid" alt="">
+
+                                <div class="custom-block-overlay-text d-flex">
+                                    <div>
+                                        <h5 class="text-white mb-2">Why Disaster Management?</h5>
+
+                                        <p class="text-white">Natural disasters can strike suddenly and with devastating force, leaving behind a trail of destruction and human suffering. By dedicating our efforts to this field, we're driven by a sense of urgency and empathy to mitigate the effects of such events and provide crucial support to those in need
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="section-overlay"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+
+        <section class="explore-section section-padding" id="section_2">
+            <div class="container">
+                <div class="row">
+
+                    <div class="col-12 text-center">
+                        <h2 class="mb-4">Our Action</h1>
+                    </div>
+
+                </div>
+            </div>
+
+
+
+            <div class="container">
+                <div class="row">
+
+                    <div class="col-12">
+                        <div class="tab-content" id="myTabContent">
+                            <div class="tab-pane fade show active" id="design-tab-pane" role="tabpanel"
+                                aria-labelledby="design-tab" tabindex="0">
+                                <div class="row">
+                                    <div class="col-lg-4 col-md-6 col-12 mb-4 mb-lg-0">
+                                        <div class="custom-block bg-white shadow-lg">
+                                            <a href="#">
+                                                <div class="d-flex">
+                                                    <div>
+                                                        <h5 class="mb-2">EarthQuake</h5>
+
+                                                        <p class="mb-0">We saved hundreds in recent earthquake disaster.</p>
+                                                    </div>
+
+
+                                                </div>
+
+                                                <img src="{{ url_for('static', filename='main/images/topics/earthquake 2.webp') }}"
+                                                    class="custom-block-image img-fluid" alt="">
+                                            </a>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-lg-4 col-md-6 col-12 mb-4 mb-lg-0">
+                                        <div class="custom-block bg-white shadow-lg">
+                                            <a href="#">
+                                                <div class="d-flex">
+                                                    <div>
+                                                        <h5 class="mb-2">LandSlide</h5>
+
+                                                        <p class="mb-0">We assisted many during recent landslide emergency</p>
+                                                    </div>
+
+
+                                                </div>
+
+                                                <img src="{{ url_for('static', filename='main/images/topics/landslide.jpg') }}"
+                                                    class="custom-block-image img-fluid" alt="">
+                                            </a>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-lg-4 col-md-6 col-12">
+                                        <div class="custom-block bg-white shadow-lg">
+                                            <a href="#">
+                                                <div class="d-flex">
+                                                    <div>
+                                                        <h5 class="mb-2">Flood</h5>
+
+                                                        <p class="mb-0">We rescued numerous individuals during recent flood crisis</p>
+                                                    </div>
+
+
+                                                </div>
+
+                                                <img src="{{ url_for('static', filename='main/images/topics/flood.jpg') }}"
+                                                    class="custom-block-image img-fluid" alt="">
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        </section>
+
+
+        <section class="timeline-section section-padding" id="section_3">
+            <div class="section-overlay"></div>
+
+            <div class="container">
+                <div class="row">
+
+                    <div class="col-12 text-center">
+                        <h2 class="text-white mb-4">How does we work?</h1>
+                    </div>
+
+                    <div class="col-lg-10 col-12 mx-auto">
+                        <div class="timeline-container">
+                            <ul class="vertical-scrollable-timeline" id="vertical-scrollable-timeline">
+                                <div class="list-progress">
+                                    <div class="inner"></div>
+                                </div>
+
+                                <li>
+                                    <h4 class="text-white mb-3">Who We are?</h4>
+
+                                    <p class="text-white">We are the Astral Tech Team, utilizing cutting-edge technology to swiftly aid victims of natural disasters, saving lives and bringing hope to communities in times of crisis
+                                    </p>
+
+                                    <div class="icon-holder">
+                                        <i class="bi bi-1-circle"></i>
+                                    </div>
+                                </li>
+
+                                <li>
+                                    <h4 class="text-white mb-3">What we do?</h4>
+
+                                    <p class="text-white">We specialize in deploying advanced technology to provide rapid assistance and support to those affected by natural disasters, offering innovative solutions and expert aid to save lives and alleviate suffering</p>
+
+                                    <div class="icon-holder">
+                                        <i class="bi bi-2-circle"></i>
+                                    </div>
+                                </li>
+
+                                <li>
+                                    <h4 class="text-white mb-3">Come Join up</h4>
+
+                                    <p class="text-white">Calling all funding organizations and volunteers! Join us in saving lives and aiding communities affected by natural disasters.</p>
+
+                                    <div class="icon-holder">
+                                        <i class="bi bi-3-circle"></i>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+
+
+
+        <section class="contact-section section-padding section-bg" id="section_4">
+            <div class="container">
+                <div class="row">
+
+                    <div class="col-lg-12 col-12 text-center">
+                        <h2 class="mb-5">Get in touch</h2>
+                    </div>
+
+                    <div class="col-lg-5 col-12 mb-4 mb-lg-0">
+                        <iframe class="google-map"
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3885.528072760794!2d80.21476907454894!3d13.129055711407682!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a5264f6f0fb401f%3A0xdcef481bfd946a0d!2s18%2C%2018%2F25%2C%20Middle%20St%2C%20Sri%20Nagar%20Colony%2C%20Sri%20Nagar%2C%20Kolathur%2C%20Chennai%2C%20Tamil%20Nadu%20600099!5e0!3m2!1sen!2sin!4v1712085191771!5m2!1sen!2sin"
+                            width="100%" height="250" style="border:0;" allowfullscreen="" loading="lazy"
+                            referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+
+                    <div class="col-lg-3 col-md-6 col-12 mb-3 mb-lg- mb-md-0 ms-auto">
+                        <h4 class="mb-3">Head office</h4>
+
+                        <p>Astral Tech,<br> No.18/25A SriNagar colony,<br>Middle Street , Kolathur , Chennai 600099</p>
+
+                        <hr>
+
+                        <p class="d-flex align-items-center mb-1">
+                            <span class="me-2">Phone</span>
+
+                            <a href="tel: 7708701121" class="site-footer-link">
+                                +91 7708701121
+                            </a>
+                        </p>
+
+                        <p class="d-flex align-items-center">
+                            <span class="me-2">Email</span>
+
+                            <a href="https://mail.google.com/mail/u/0/#sent?compose=DmwnWrRtsNHNNkbVxdKQlRWGQnkPZVxmVJFCtwsMJSnSWkgpfKflqmLDjWMRmgMNXbLHpDpBKdLL"
+                                class="site-footer-link">
+                                astraltech@gmail.com
+                            </a>
+                        </p>
+                    </div>
+
+
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer section-padding">
+        <div class="container">
+            <div class="row">
+
+                <div class="col-lg-3 col-12 mb-4 pb-2">
+                    <a class="navbar-brand mb-2" href="#">
+                        <i class="bi-back"></i>
+                        <span>Astral Tech</span>
+                    </a>
+                </div>
+
+                <div class="col-lg-3 col-md-4 col-6">
+                    <h6 class="site-footer-title mb-3">Resources</h6>
+
+                    <ul class="site-footer-links">
+                        <li class="site-footer-link-item">
+                            <a href="#section_1" class="site-footer-link">Home</a>
+                        </li>
+
+                        <li class="site-footer-link-item">
+                            <a href="#section_2" class="site-footer-link">Our Action</a>
+                        </li>
+
+                        <li class="site-footer-link-item">
+                            <a href="#section_3" class="site-footer-link">How it works</a>
+                        </li>
+
+                        <li class="site-footer-link-item">
+                            <a href="#section_4" class="site-footer-link">Contact</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="col-lg-3 col-md-4 col-6 mb-4 mb-lg-0">
+                    <h6 class="site-footer-title mb-3">Information</h6>
+
+                    <p class="text-white d-flex mb-1">
+                        <a href="tel: 305-240-9671" class="site-footer-link">
+                            +91 7708701121
+                        </a>
+                    </p>
+
+                    <p class="text-white d-flex">
+                        <a href="https://mail.google.com/mail/u/0/#sent?compose=DmwnWrRtsNHNNkbVxdKQlRWGQnkPZVxmVJFCtwsMJSnSWkgpfKflqmLDjWMRmgMNXbLHpDpBKdLL"
+                            class="site-footer-link">
+                            astraltech@gmail.com
+                        </a>
+                    </p>
+                </div>
+
+                <div class="col-lg-3 col-md-4 col-12 mt-4 mt-lg-0 ms-auto">
+
+
+                    <p class="copyright-text mt-lg-5 mt-4">Copyright © 2048 Astral Tech. All rights reserved.
+                        <br><br>Design: <a rel="nofollow" href="#">Astral Tech</a>
+                    </p>
+
+                </div>
+
+            </div>
+        </div>
+    </footer>
+
+
+    <!-- JAVASCRIPT FILES -->
+    <script src="{{ url_for('static', filename='main/scripts/jquery.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='main/scripts/bootstrap.bundle.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='main/scripts/jquery.sticky.js') }}"></script>
+    <script src="{{ url_for('static', filename='main/scripts/click-scroll.js') }}"></script>
+    <script src="{{ url_for('static', filename='main/scripts/custom.js') }}"></script>
+
+    <script src="
+  https://cdn.jsdelivr.net/npm/sweetalert2@11.10.7/dist/sweetalert2.all.min.js
+  "></script>
+    <script>
+        {% with messages = get_flashed_messages(with_categories = true) %}
+        {% if messages %}
+        {% for category, message in messages %}
+        Swal.fire({
+            icon: '{{ category }}',
+            title: '{{ message }}',
+            showConfirmButton: false,
+            timer: 3000  // Display time in milliseconds (adjust as needed)
+        });
+        {% endfor %}
+        {% endif %}
+        {% endwith %}
+    </script>
+
+</body>
+
+</html>

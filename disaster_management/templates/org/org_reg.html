@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Organization Registrations</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="{{ url_for('static', filename='org/styles/orgReg.css') }}">
+</head>
+
+<body>
+  <div class="container">
+    <div class="title">Organization Registration</div>
+    <div class="content">
+      <form action="{{url_for('org.org_reg')}}" method="post" id="registrationForm">
+        <div class="user-details">
+          <div class="input-box">
+            <span class="details">Organization Name</span>
+            <input type="text" name="Organization Name" placeholder="Enter Organization name" id="Orgname">
+            <div class="error-message" id="OrgnameError"></div>
+          </div>
+          <div class="input-box">
+            <span class="details">In-Charge Name</span>
+            <input type="text" name="In-Charge name" placeholder="Your In-Charge name" id="In_Charge_name">
+            <div class="error-message" id="In_Charge_nameError"></div>
+          </div>
+          <div class="input-box">
+            <span class="details">Phone Number</span>
+            <input type="text" name="Phone Number" placeholder="Enter your Phone Number" id="phoneNumber">
+            <div class="error-message" id="phoneNumberError"></div>
+          </div>
+          <div class="input-box">
+            <span class="details">E-Mail</span>
+            <input type="text" name="Email_ID" placeholder="Enter your Email" id="email">
+            <div class="error-message" id="emailError"></div>
+          </div>
+          <div class="input-box">
+            <span class="details">Password</span>
+            <input type="password" name="Password" placeholder="Enter your password" id="password">
+            <div class="error-message" id="passwordError"></div>
+          </div>
+          <div class="input-box">
+            <span class="details">Confirm Password</span>
+            <input type="password" placeholder="Confirm your password" id="confirmPassword">
+            <div class="error-message" id="confirmPasswordError"></div>
+          </div>
+        </div>
+        <div class="button">
+          <input type="submit" value="Register">
+        </div>
+        <div class="center">
+          <h3>Already Have an account?</h3>
+          <a href="{{url_for('org.org_login')}}">Click Here</a>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script src="
+  https://cdn.jsdelivr.net/npm/sweetalert2@11.10.7/dist/sweetalert2.all.min.js
+  "></script>
+
+  <script src="{{ url_for('static', filename='org/scripts/orgReg.js') }}"> </script>
+  <script>
+    {% with messages = get_flashed_messages(with_categories = true) %}
+    {% if messages %}
+    {% for category, message in messages %}
+    Swal.fire({
+      icon: '{{ category }}',
+      title: '{{ message }}',
+      showConfirmButton: false,
+      timer: 3000  // Display time in milliseconds (adjust as needed)
+    });
+    {% endfor %}
+    {% endif %}
+    {% endwith %}
+  </script>
+
+</body>
+
+</html>

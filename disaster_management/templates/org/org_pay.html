@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Organization Payment Registration</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='org/styles/pay.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/css/bootstrap.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.16/css/dataTables.bootstrap4.css">
+    <!-- Include SweetAlert2 CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@10"></link>
+  <style>
+    .content-wrapper{
+      height:100vh;
+      width: 100vw;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(109.6deg, rgb(5, 85, 84) 11.2%, rgb(64, 224, 208) 91.1%);
+    }
+  </style>
+</head>
+<body>
+        <div class="content-wrapper">
+        <div class="container1">
+            <div class="title">Organization Payment Registration</div>
+            <div class="content">
+              <form action="{{ url_for('org.org_pay') }}" method="POST" id="registrationForm">
+                <div class="user-details">
+                  <div class="input-box">
+                    <span class="details">Amount</span>
+                    <input type="text" name="amt" placeholder="Enter Amount Here.." id="In_Charge_name">
+                    <div class="error-message" id="In_Charge_nameError"></div>
+                  </div>
+                 
+                  <div class="input-box last">
+                    <span class="details">Account Number</span>
+                    <input type="text" name="accno" placeholder="Enter your Account No" id="password">
+                    <div class="error-message" id="passwordError"></div>
+                    
+                  </div>
+                </div>
+                <div class="button">
+                  <input type="submit" value="Pay">
+                </div> 
+              </form>
+            </div>
+          </div>
+
+         
+    
+      </div>
+
+      <script>
+        const form = document.getElementById('registrationForm');
+        form.addEventListener('submit', function (event) {
+            event.preventDefault();
+            if (validateForm()) {
+                // After form submission, display details in a popup
+                displayDetailsPopup();
+            }
+        });
+
+      function validateForm() {
+        let isValid = true;
+
+        const InChargeName = document.getElementById('In_Charge_name').value.trim(); // Corrected variable name
+        const password = document.getElementById('password').value.trim();
+
+        // Validation for In Charge Name
+        const inChargeName = document.getElementById('In_Charge_name').value.trim();
+        if (inChargeName === '') {
+          isValid = false;
+          document.getElementById('In_Charge_nameError').innerText = 'Amount is required';
+          document.getElementById('In_Charge_name').style.borderColor = 'red';
+        } else if (!/^\d+$/.test(inChargeName)) {
+          isValid = false;
+          document.getElementById('In_Charge_nameError').innerText = 'Invalid Amount';
+          document.getElementById('In_Charge_name').style.borderColor = 'red';
+        } else {
+          document.getElementById('In_Charge_nameError').innerText = '';
+          document.getElementById('In_Charge_name').style.borderColor = '';
+        }
+
+
+
+        // Validation for Password
+        if (password === '') {
+          isValid = false;
+          document.getElementById('passwordError').innerText = 'Account Number is required';
+          document.getElementById('password').style.borderColor = 'red';
+        } else if (!/^[0-9]{10,16}$/i.test(password)) {
+          isValid = false;
+          document.getElementById('passwordError').innerText = 'Acc no must be 10 to 16 digits ';
+          document.getElementById('password').style.borderColor = 'red';
+        } else {
+          document.getElementById('passwordError').innerText = '';
+          document.getElementById('password').style.borderColor = '';
+        }
+        return isValid;
+      }
+
+      function displayDetailsPopup() {
+    // Get form input values
+    const amount = document.getElementById('In_Charge_name').value.trim();
+    const accountNumber = document.getElementById('password').value.trim();
+
+    // Construct the message to display in the popup
+    const message = `
+        <div>
+            <h2>Payment Details</h2>
+            <p><strong>Amount:</strong> ${amount}</p>
+            <p><strong>Account Number:</strong> ${accountNumber}</p>
+            <img src="/disaster_management/static/volunteer/images/QRScanner.jpg" alt="hello" style="max-width: 100%;>
+        </div>
+    `;
+
+    // Display popup with form details and image
+    Swal.fire({
+      title: '',
+      html: message,
+      icon: 'info',
+      showCancelButton: true,
+      confirmButtonText: 'Ok'
+  }).then((result) => {
+      if (result.isConfirmed) {
+          form.submit();
+      }
+  });
+}
+
+      </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.5/umd/popper.js"></script>
+    <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.16/js/dataTables.bootstrap4.js"></script>
+
+    <script src="
+  https://cdn.jsdelivr.net/npm/sweetalert2@11.10.7/dist/sweetalert2.all.min.js
+  "></script>
+  <script>
+    {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+        {% for category, message in messages %}
+          Swal.fire({
+            icon: '{{ category }}',
+            title: '{{ message }}',
+            showConfirmButton: false,
+            timer: 3000  // Display time in milliseconds (adjust as needed)
+          });
+        {% endfor %}
+      {% endif %}
+    {% endwith %}
+  </script>
+</body>
+</html>

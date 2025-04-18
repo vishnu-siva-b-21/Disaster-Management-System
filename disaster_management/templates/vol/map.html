@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Disaster Management Map</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="{{ url_for('static', filename='vol/styles/map.css') }}">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/css/bootstrap.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
+
+  <!-- Load Leaflet code library - see updates at http://leafletjs.com/download.html -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"/>
+  <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+
+  <!-- Load jQuery for AJAX requests -->
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+
+  <!-- Load PapaParse for CSV parsing -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.0/papaparse.min.js"></script>
+
+  <!-- Position the map with Cascading Style Sheet (CSS) -->
+  <style>
+    body { margin:0; padding:0; }
+    #map { position: absolute; top:0; bottom:0; right:0; left:0; }
+  </style>
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark  fixed-top" id="mainNav">
+    <a class="navbar-brand" href="{{ url_for('main.home') }}">Astral Tech</a>
+    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
+      data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
+      aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav sidenav-toggler">
+        <li class="nav-item">
+          <a class="nav-link text-center" id="sidenavToggler">
+            <i class="fa fa-fw fa-angle-left"></i>
+          </a>
+        </li>
+      </ul>
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle mr-lg-2" id="messagesDropdown" href="#" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            <i class="fa fa-fw fa-envelope"></i>
+            <span class="d-lg-none">Messages
+              <span class="badge badge-pill badge-primary">12 New</span>
+            </span>
+            <span class="indicator text-primary d-none d-lg-block">
+              <i class="fa fa-fw fa-circle"></i>
+            </span>
+          </a>
+          <div class="dropdown-menu" aria-labelledby="messagesDropdown">
+            <h6 class="dropdown-header">New Messages:</h6>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#">
+              <strong>Riya</strong>
+              <span class="small float-right text-muted">11:21 AM</span>
+              <div class="dropdown-message small">Stuck in flood, pincode:600119,age:32</div>
+            </a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#">
+              <strong>Ram</strong>
+              <span class="small float-right text-muted">11:21 AM</span>
+              <div class="dropdown-message small">Stuck in flood, pincode:600119,age:32</div>
+            </a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#">
+              <strong>Vidhya</strong>
+              <span class="small float-right text-muted">11:21 AM</span>
+              <div class="dropdown-message small">Stuck in flood, pincode:600119,age:32</div>
+            </a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item small" href="#">View all messages</a>
+          </div>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="./volLogin.html" id="logoutLink">
+              <i class="fa fa-fw fa-sign-out"></i>Logout</a>
+      </li>
+      </ul>
+    </div>
+  </nav>
+ 
+  <div id="map"></div>
+  <!-- White area for displaying tables -->
+  <div class="white-area">
+    <div class="table-container">
+      <h3>People in Need</h3>
+      <table class="table table-striped">
+        <!-- Table content for people in need -->
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Location</th>
+            <th>Age</th>
+            <th>Phone</th>
+            <!-- Add more table headers as needed -->
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Add table rows with data for people in need -->
+          <tr>
+            <td>John Doe</td>
+            <td>City A</td>
+            <td>35</td>
+            <td>9876546787</td>
+            <!-- Add more table cells as needed -->
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="table-container">
+      <h3>Volunteer</h3>
+      <table class="table table-striped">
+        <!-- Table content for team members -->
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Area</th>
+            <th>Role</th>
+            <th>Contact</th>
+            <!-- Add more table headers as needed -->
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Add table rows with data for team members -->
+          <tr>
+            <td>Jane Smith</td>
+            <td>Tambaram</td>
+            <td>Rescuer</td>
+            <td>7456489657</td>
+            <!-- Add more table cells as needed -->
+          </tr>
+         
+        </tbody>
+      </table>
+    </div>
+  </div>
+ 
+
+  <script src="{{ url_for('static', filename='vol/scripts/map.js') }}"></script>
+
+  <script>
+    
+        // Get the logout link element
+        const logoutLink = document.getElementById('logoutLink');
+
+        // Add click event listener
+        logoutLink.addEventListener('click', function (event) {
+            event.preventDefault(); // Prevent the default behavior (i.e., navigating to the logout page)
+
+            // Show confirmation sweet alert
+            Swal.fire({
+                title: 'Are you sure?',
+                text: "You will be logged out!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Yes',
+                cancelButtonText: 'No' // Add text for cancel button
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    // Proceed with logout action
+                    window.location.href = logoutLink.href; // Redirect to the logout page
+                } else if (result.dismiss === Swal.DismissReason.cancel) {
+                    // Handle cancel action
+                    Swal.fire({
+                        title: 'Cancelled',
+                        text: 'Logout action was cancelled',
+                        icon: 'error'
+                    });
+                }
+            });
+        });
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/js/bootstrap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.16/js/dataTables.bootstrap4.js"></script>
+
+  <script src="
+  https://cdn.jsdelivr.net/npm/sweetalert2@11.10.7/dist/sweetalert2.all.min.js
+  "></script>
+  <script>
+    {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+        {% for category, message in messages %}
+          Swal.fire({
+            icon: '{{ category }}',
+            title: '{{ message }}',
+            showConfirmButton: false,
+            timer: 3000  // Display time in milliseconds (adjust as needed)
+          });
+        {% endfor %}
+      {% endif %}
+    {% endwith %}
+  </script>
+
+</body>
+</html>

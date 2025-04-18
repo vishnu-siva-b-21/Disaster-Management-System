@@ -1,0 +1,56 @@
+{% extends "admin/admin_base.html" %}
+
+{% block title %}
+Sub Admin Details
+{% endblock %}
+
+{% block styles %}
+<link rel="stylesheet" href="{{ url_for('static', filename='admin/styles/vol_reg.css') }}">
+{% endblock %}
+
+{% block content %}
+<div class="content-wrapper">
+  <div class="card mb-3">
+    <div class="card-header">
+      <i class="fa fa-table"></i> 
+    </div>
+    <div class="card-body">
+      <h3>Sub Admin Details</h3>       
+      <div class="table-responsive">
+        <table class="table table-bordered" id="sub_admin_table" width="100%" cellspacing="0">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Age</th>
+              <th>gender</th>
+              <th>Phone Number</th>
+              <th>Email</th>
+              <th>Area</th>
+              <th>Pin Code</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for sub_admin in sub_admin_details %}
+              <tr>
+                <td>{{sub_admin.get('name')}}</td>
+                <td>{{sub_admin.get('age')}}</td>
+                <td>{{sub_admin.get('gender')}}</td>
+                <td>{{sub_admin.get('phone_no')}}</td>
+                <td>{{sub_admin.get('email')}}</td>
+                <td>{{sub_admin.get('area')}}</td>
+                <td>{{sub_admin.get('pincode')}}</td>
+              </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='sub_admin/scripts/vol_details.js') }}"></script>
+{% endblock %}
+
+

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<!-- Coding By CodingNepal - youtube.com/codingnepal -->
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Volunteers Login</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='vol/styles/vol_login.css') }}">
+
+    <link rel=" stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+
+    <link rel=" stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+</head>
+
+<body>
+ 
+    <div class="wrapper">
+      <a class="back" href="">
+        <i class="fa-solid fa-arrow-left"></i> Back
+      </a>
+        <header>Volunteer Login</header>
+        <form action='{{url_for("vol.vol_login")}}' method ="post">
+          <div class="field email">
+            <div class="input-area">
+              <input type="text" name = "email" placeholder="Email Address">
+              <i class="icon fas fa-envelope"></i>
+              <i class="error error-icon fas fa-exclamation-circle"></i>
+            </div>
+            <div class="error error-txt">Email required</div>
+          </div>
+          <div class="field password">
+            <div class="input-area">
+              <input type="password" name = "password" placeholder="Password">
+              <i class="icon fas fa-lock"></i>
+              <i class="error error-icon fas fa-exclamation-circle"></i>
+            </div>
+            <div class="error error-txt">Password required</div>
+          </div>
+          <div class="pass-txt"><a href="#">Forgot password?</a></div>
+          <input type="submit" value="Login">
+        </form>
+        <div class="sign-txt">
+            <p>Don't have Account?</p><a href="{{url_for('vol.vol_reg')}}">Register Now</a>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='vol/scripts/vol_login.js') }}"></script>
+
+    <script src="
+  https://cdn.jsdelivr.net/npm/sweetalert2@11.10.7/dist/sweetalert2.all.min.js
+  "></script>
+  <script>
+    {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+        {% for category, message in messages %}
+          Swal.fire({
+            icon: '{{ category }}',
+            title: '{{ message }}',
+            showConfirmButton: false,
+            timer: 3000  // Display time in milliseconds (adjust as needed)
+          });
+        {% endfor %}
+      {% endif %}
+    {% endwith %}
+  </script>
+
+</body>
+
+</html>

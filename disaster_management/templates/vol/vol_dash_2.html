@@ -1,0 +1,454 @@
+<!doctype html>
+<html class="no-js" lang="zxx">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Astral tech | Volunteer</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="manifest" href="site.webmanifest">
+    <link rel="stylesheet" href="{{ url_for('static', filename='vol/styles/pay.css') }}">
+	<!-- CSS here -->
+	<link rel="stylesheet" href="{{ url_for('static', filename='vol/styles/bootstrap.min.css') }}">
+	<link rel="stylesheet" href="{{ url_for('static', filename='vol/styles/owl.carousel.min.css') }}">
+	<link rel="stylesheet" href="{{ url_for('static', filename='vol/styles/slicknav.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='vol/styles/flaticon.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='vol/styles/progressbar_barfiller.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='vol/styles/gijgo.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='vol/styles/animate.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='vol/styles/animated-headline.css') }}">
+	<link rel="stylesheet" href="{{ url_for('static', filename='vol/styles/magnific-popup.css') }}">
+	<link rel="stylesheet" href="{{ url_for('static', filename='vol/styles/fontawesome-all.min.css') }}">
+	<link rel="stylesheet" href="{{ url_for('static', filename='vol/styles/themify-icons.css') }}">
+	<link rel="stylesheet" href="{{ url_for('static', filename='vol/styles/slick.css') }}">
+	<link rel="stylesheet" href="{{ url_for('static', filename='vol/styles/nice-select.css') }}">
+	<link rel="stylesheet" href="{{ url_for('static', filename='vol/styles/style.css') }}">
+    <style>
+        html{
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+<body>
+    <!-- ? Preloader Start -->
+    <div id="preloader-active">
+        <div class="preloader d-flex align-items-center justify-content-center">
+            <div class="preloader-inner position-relative">
+                <div class="preloader-circle"></div>
+                <div class="preloader-img pere-text">
+                    <!-- <img src="{{ url_for('static', filename='vol/images/loder.png') }}" alt=""> -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Preloader Start -->
+    <header>
+        <!-- Header Start -->
+        <div class="header-area">
+            <div class="main-header ">
+               
+                <div class="header-bottom  header-sticky">
+                    <div class="container-fluid">
+                        <div class="row align-items-center">
+                            <!-- Logo -->
+                            <div class="col-xl-2 col-lg-2">
+                                <div class="logo">
+                                   <h1 style="font-weight: 900; font-size: 35px; color: #3ad2c4;">Astral tech</h1>
+                                </div>
+                            </div>
+                            <div class="col-xl-10 col-lg-10">
+                                <div class="menu-wrapper  d-flex align-items-center justify-content-end">
+                                    <!-- Main-menu -->
+                                    <div class="main-menu d-none d-lg-block">
+                                        <nav>
+                                            <ul id="navigation">                                                                                          
+                                                <li><a href="#home">Home</a></li>
+                                                <li><a href="#about">About</a></li>
+                                                <li><a href="#startwork">Our Volunteers</a></li>                                            
+                                                <li><a href="#pay">Payment</a></li>
+                                            </ul>
+                                        </nav>
+                                    </div>
+                                    <!-- Header-btn -->
+                                    <div class="header-right-btn d-none d-lg-block ml-20">
+                                        <a href="{{ url_for('vol.vol_logout') }}" class="btn header-btn">Logout</a>
+                                    </div>
+                                </div>
+                            </div> 
+                            <!-- Mobile Menu -->
+                            <div class="col-12">
+                                <div class="mobile_menu d-block d-lg-none"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Header End -->
+    </header>
+    <!-- header end -->
+    <main>
+    <!-- slider Area Start-->
+    <section id="home">
+        <div class="slider-area">
+            <div class="slider-active">
+                <!-- Single Slider -->
+                <div class="single-slider slider-height d-flex align-items-center">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-xl-6 col-lg-6 col-md-8 col-sm-10">
+                                <div class="hero__caption">
+                                    <h1 data-animation="fadeInUp" data-delay=".6s">Our Helping to<br> the world.</h1>
+                                    <P data-animation="fadeInUp" data-delay=".8s" >Astra Tech Community is a beacon of hope, dedicated to supporting those in need. Our platform serves as a nexus for compassionate individuals striving to make a difference. Through collaborative efforts, we address various societal challenges, ranging from healthcare accessibility to disaster relief. At Astra Tech, we believe in the power of community-driven initiatives to enact positive change. By fostering a spirit of empathy and solidarity, we extend a helping hand to the vulnerable and marginalized. Join us in our mission to uplift lives and create a brighter tomorrow. Together, we can transform compassion into action and build a more equitable world. Explore Astra Tech Community today and become a catalyst for meaningful impact.
+                                    </P>
+                                    <!-- Hero-btn -->
+                                    <div class="hero__btn">
+                                        <a href="#" class="cal-btn ml-15" data-animation="fadeInRight" data-delay="1.0s">
+                                            <i class="flaticon-null"></i>
+                                            <p>Helpline no: +91 7708701121</p>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Single Slider -->
+                <div class="single-slider slider-height d-flex align-items-center">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-xl-6 col-lg-6 col-md-8 col-sm-10">
+                                <div class="hero__caption">
+                                    <h1 data-animation="fadeInUp" data-delay=".6s">Our Helping to<br> the world.</h1>
+                                    <P data-animation="fadeInUp" data-delay=".8s" >Onsectetur adipiscing elit, sed do eiusmod tempor incididunt ut bore et dolore magnt, sed do eiusmod.</P>
+                                    <!-- Hero-btn -->
+                                    <div class="hero__btn">
+                                        <a href="industries.html" class="btn hero-btn mb-10"  data-animation="fadeInLeft" data-delay=".8s">Donate</a>
+                                        <a href="industries.html" class="cal-btn ml-15" data-animation="fadeInRight" data-delay="1.0s">
+                                            <i class="flaticon-null"></i>
+                                            <p>+12 1325 41</p>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- slider Area End-->
+
+    <!--? About Law Start-->
+    <section id="about" class="about-low-area  section-padding2">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 col-md-10">
+                    <div class="about-caption mb-50">
+                        <!-- Section Tittle -->
+                        <div class="section-tittle mb-35">
+                            <span>About our foundation</span>
+                            <h2>We Are In A Mission To  Help Helpless</h2>
+                        </div>
+                        <p>Astral Tech is an online platform dedicated to enhancing disaster management efforts by connecting victims, volunteers, and fund volanizations. Its mission is to provide a seamless interface for those affected by disasters, volunteers offering assistance, and volanizations seeking to provide support.</p>
+                        <p>Astral Tech serves as a vital bridge between those in need, those willing to help, and volanizations ready to provide resources, fostering a community-driven approach to disaster management</p>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-12">
+                    <!-- about-img -->
+                    <div class="about-img ">
+                        <div class="about-font-img d-none d-lg-block">
+                            <img src="{{ url_for('static', filename='vol/images/img1.jpg') }}" alt="" style="width: 250px; height: 400px;">
+                        </div>
+                        <div class="about-back-img ">
+                            <img src="{{ url_for('static', filename='vol/images/img2.jpg') }}" alt="" style="width: 400px; height: 420px;">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- About Law End-->
+
+        <!-- Want To work -->
+        <section id="startwork" class="wantToWork-area ">
+            <div class="container">
+                <div id="work" class="wants-wrapper w-padding2  section-bg" data-background="{{ url_for('static', filename='vol/images/child.jpg') }}">
+                    <div class="row align-items-center justify-content-between">
+                        <div class="col-xl-5 col-lg-9 col-md-8">
+                            <div class="wantToWork-caption wantToWork-caption2">
+                                <h2>Help the people in need</h2>
+                            </div>
+                        </div>
+                        <div class="col-xl-2 col-lg-3 col-md-4">
+                            <a href="{{ url_for('vol.vol_start') }}" class="btn white-btn f-right sm-left">Start Volunteering</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Want To work End -->
+
+        <section id="pay">
+    <div class="content-wrapper">
+        <div class="container1">
+            <div class="title">Help if you can</div>
+            <div class="content">
+              <form action="{{ url_for('vol.vol_pay') }}" method="POST" id="registrationForm">
+                <div class="user-details">
+                  <div class="input-box">
+                    <span class="details">Amount</span>
+                    <input type="text" name="amt" placeholder="Enter Amount Here.." id="amount">
+                    <div class="error-message" id="amountError"></div>
+                  </div>
+                 
+                  <div class="input-box last">
+                    <span class="details">Account Number</span>
+                    <input type="text" name="accno" placeholder="Enter your Account No" id="password">
+                    <div class="error-message" id="passwordError"></div>
+                    
+                  </div>
+                </div>
+                <div class="button">
+                  <input type="submit" value="Pay">
+                </div> 
+              </form>
+            </div>
+          </div>
+
+         
+    
+      </div>
+    
+    </section>
+
+
+    </main>
+        <section id="contact">
+            <footer>
+                <div class="footer-wrapper section-bg2" data-background="{{ url_for('static', filename='vol/images/footer_bg.png') }}">
+                    <!-- Footer Top-->
+                    <div class="footer-area footer-padding">
+                        <div class="container">
+                            <div class="row d-flex justify-content-between">
+                                <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6">
+                                <div class="single-footer-caption mb-50">
+                                    <div class="single-footer-caption mb-30">
+                                        <div class="footer-tittle">
+                                            <div class="footer-logo mb-20">
+                                                <h1 style="font-weight: 900; font-size: 35px; color: #3ad2c4;">Astral tech</h1>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                </div>
+                                <div class="col-xl-3 col-lg-3 col-md-4 col-sm-5">
+                                    <div class="single-footer-caption mb-50">
+                                        <div class="footer-tittle">
+                                            <h4>Contact Info</h4>
+                                            <ul>
+                                                <li>
+                                                    <p>Address :Your address goes here, your demo address.</p>
+                                                </li>
+                                                <li><a href="#">Phone : +8880 44338899</a></li>
+                                                <li><a href="#">Email : info@colorlib.com</a></li>
+                                            </ul>
+                                        </div>
+        
+                                    </div>
+                                </div>
+                                <div class="col-xl-3 col-lg-3 col-md-4 col-sm-5">
+                                    <div class="single-footer-caption mb-50">
+                                        <div class="footer-tittle">
+                                            <h4>Important Link</h4>
+                                            <ul>
+                                                <li><a href="#">View Project</a></li>
+                                                <li><a href="#">Contact Us</a></li>
+                                                <li><a href="#">Testimonial</a></li>
+                                                <li><a href="#">Proparties</a></li>
+                                                <li><a href="#">Support</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                               
+                            </div>
+                        </div>
+                    </div>
+                    <!-- footer-bottom -->
+                    <div class="footer-bottom-area">
+                        <div class="container">
+                            <div class="footer-border">
+                                <div class="row d-flex justify-content-between align-items-center">
+                                    <div class="col-xl-10 col-lg-9 ">
+                                        <div class="footer-copy-right">
+                                            <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+          Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved |  <a href="https://colorlib.com" target="_blank">Astral Tech</a>
+          <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-2 col-lg-3">
+                                        <div class="footer-social f-right">
+                                            <a href="#"><i class="fab fa-twitter"></i></a>
+                                            <a  href="https://www.facebook.com/sai4ull"><i class="fab fa-facebook-f"></i></a>
+                                            <a href="#"><i class="fas fa-globe"></i></a>
+                                            <a href="#"><i class="fab fa-behance"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        </section>
+       
+
+    <!-- Scroll Up -->
+    <a title="Go to Top" href="#"><div id="back-top" >
+ <i class="fas fa-level-up-alt"></i>
+    </div></a>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+
+    <!-- JS here -->
+    <script>
+        const form = document.getElementById('registrationForm');
+        form.addEventListener('submit', function (event) {
+            event.preventDefault();
+            if (validateForm()) {
+                displayDetailsPopup();
+            }
+        });
+
+      function validateForm() {
+        let isValid = true;
+
+        const InChargeName = document.getElementById('amount').value.trim(); // Corrected variable name
+        const password = document.getElementById('password').value.trim();
+
+
+        // Validation for In Charge Name
+        const inChargeName = document.getElementById('amount').value.trim();
+        if (inChargeName === '') {
+          isValid = false;
+          document.getElementById('amountError').innerText = 'Amount is required';
+          document.getElementById('amount').style.borderColor = 'red';
+        } else if (!/^\d+$/.test(inChargeName)) {
+          isValid = false;
+          document.getElementById('amountError').innerText = 'Invalid Amount';
+          document.getElementById('amount').style.borderColor = 'red';
+        } else {
+          document.getElementById('amountError').innerText = '';
+          document.getElementById('amount').style.borderColor = '';
+        }
+
+
+
+        // Validation for Password
+        if (password === '') {
+          isValid = false;
+          document.getElementById('passwordError').innerText = 'Account Number is required';
+          document.getElementById('password').style.borderColor = 'red';
+        } else if (!/^[0-9]{10,16}$/i.test(password)) {
+          isValid = false;
+          document.getElementById('passwordError').innerText = 'Acc no must be 10 to 16 digits ';
+          document.getElementById('password').style.borderColor = 'red';
+        } else {
+          document.getElementById('passwordError').innerText = '';
+          document.getElementById('password').style.borderColor = '';
+        }
+        return isValid;
+      }
+
+      function displayDetailsPopup() {
+    // Get form input values
+    const amount = document.getElementById('amount').value.trim();
+    const accountNumber = document.getElementById('password').value.trim();
+
+    // Construct the message to display in the popup
+    const message = `
+        <div>
+            <h2>Payment Details</h2>
+            <p><strong>Amount:</strong> ${amount}</p>
+            <p><strong>Account Number:</strong> ${accountNumber}</p>
+            <img src="/disaster_management/static/vol/images/QRScanner.jpg" alt="hello" style="max-width: 100%;>
+        </div>
+    `;
+
+    // Display popup with form details and image
+    Swal.fire({
+        title: '',
+        html: message,
+        icon: 'info',
+        showCancelButton: true,
+        confirmButtonText: 'Ok'
+    }).then((result) => {
+        if (result.isConfirmed) {
+            form.submit();
+        }
+    });
+}
+
+      </script>
+
+    <script src="{{ url_for('static', filename='vol/scripts/vendor/modernizr-3.5.0.min.js') }}"></script>
+    <!-- Jquery, Popper, Bootstrap -->
+    <script src="{{ url_for('static', filename='vol/scripts/vendor/jquery-1.12.4.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='vol/scripts/popper.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='vol/scripts/bootstrap.min.js') }}"></script>
+    <!-- Jquery Mobile Menu -->
+    <script src="{{ url_for('static', filename='vol/scripts/jquery.slicknav.min.js') }}"></script>
+
+    <!-- Jquery Slick , Owl-Carousel Plugins -->
+    <script src="{{ url_for('static', filename='vol/scripts/owl.carousel.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='vol/scripts/slick.min.js') }}"></script>
+    <!-- One Page, Animated-HeadLin -->
+    <script src="{{ url_for('static', filename='vol/scripts/wow.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='vol/scripts/animated.headline.js') }}"></script>
+    <script src="{{ url_for('static', filename='vol/scripts/jquery.magnific-popup.js') }}"></script>
+
+    <!-- Date Picker -->
+    <script src="{{ url_for('static', filename='vol/scripts/gijgo.min.js') }}"></script>
+    <!-- Nice-select, sticky -->
+    <script src="{{ url_for('static', filename='vol/scripts/jquery.nice-select.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='vol/scripts/jquery.sticky.js') }}"></script>
+    <!-- Progress -->
+    <script src="{{ url_for('static', filename='vol/scripts/jquery.barfiller.js') }}"></script>
+    
+    <!-- counter , waypoint,Hover Direction -->
+    <script src="{{ url_for('static', filename='vol/scripts/jquery.counterup.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='vol/scripts/waypoints.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='vol/scripts/jquery.countdown.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='vol/scripts/hover-direction-snake.min.js') }}"></script>
+
+    <!-- contact js -->
+    <script src="{{ url_for('static', filename='vol/scripts/contact.js') }}"></script>
+    <script src="{{ url_for('static', filename='vol/scripts/jquery.form.js') }}"></script>
+    <script src="{{ url_for('static', filename='vol/scripts/jquery.validate.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='vol/scripts/mail-script.js') }}"></script>
+    <script src="{{ url_for('static', filename='vol/scripts/jquery.ajaxchimp.min.js') }}"></script>
+    
+    <!-- Jquery Plugins, main Jquery -->	
+    <script src="{{ url_for('static', filename='vol/scripts/plugins.js') }}"></script>
+    <script src="{{ url_for('static', filename='vol/scripts/main.js') }}"></script>
+    <script src="
+    https://cdn.jsdelivr.net/npm/sweetalert2@11.10.7/dist/sweetalert2.all.min.js
+    "></script>
+    <script>
+      {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+          {% for category, message in messages %}
+            Swal.fire({
+              icon: '{{ category }}',
+              title: '{{ message }}',
+              showConfirmButton: false,
+              timer: 3000  // Display time in milliseconds (adjust as needed)
+            });
+          {% endfor %}
+        {% endif %}
+      {% endwith %}
+    </script>
+  
+    </body>
+</html>

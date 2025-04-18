@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<!-- Created By CodingLab - www.codinglabweb.com -->
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="UTF-8">
+  <title> Volunteers Registrations</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="{{ url_for('static', filename='vol/styles/vol_reg.css') }}">
+</head>
+
+<body>
+  <div class="container">
+    <div class="title">Volunteers Registration</div>
+    <div class="content">
+      <form action='{{url_for("vol.vol_reg")}}' method="POST" id="registrationForm">
+        <div class="user-details">
+          <div class="input-box">
+            <span class="details">Name</span>
+            <input type="text" name="name" placeholder="Enter your name" id="name">
+            <div class="error-message" id="nameError"></div>
+          </div>
+          <div class="input-box">
+            <span class="details">Age</span>
+            <input type="text" name="age" placeholder="Enter your Age" id="age">
+            <div class="error-message" id="ageError"></div>
+          </div>
+          <div class="input-box">
+            <span class="details">Phone Number</span>
+            <input type="text" name="phno" placeholder="Enter your Phone Number" id="phoneNumber">
+            <div class="error-message" id="phoneNumberError"></div>
+          </div>
+          <div class="input-box">
+            <span class="details">E-Mail</span>
+            <input type="text" name = "email" placeholder="Enter your Email" id="email">
+            <div class="error-message" id="emailError"></div>
+          </div>
+          <div class="input-box">
+            <span class="details">Area</span>
+            <input type="text" name="area" placeholder="Enter your Area" id="area">
+            <div class="error-message" id="areaError"></div>
+          </div>
+          <div class="input-box">
+            <span id="carrer" class="details">Skills</span>
+            <select id="dropdown" name="role">
+              <option disabled selected value>
+                Select your Skills
+              </option>
+              <option value="ISC">
+                Swimming
+              </option>
+              <option value="IMA">
+                Climbing
+              </option>
+              <option value="II">
+                First Aid/CPR
+              </option>
+              <option value="IGE">
+                Problem-solving Abilities
+              </option>
+              <option value="II">
+                Teamwork
+              </option>
+              <option value="IGE">
+                Leadership
+              </option>
+              <option value="IGE">
+                Boating
+              </option>
+            </select><!--dropdown--->
+            <div class="error-message" id="careerError"></div> <!-- Error message for the Skills dropdown -->
+          </div>
+          <div class="input-box">
+            <span class="details">PinCode</span>
+            <input type="text" name="pincode" placeholder="Enter Your PinCode" id="pinCode">
+            <div class="error-message" id="pinCodeError"></div>
+          </div>
+          <div class="input-box">
+            <span class="details">Password</span>
+            <input type="password" name="password" placeholder="Enter your password" id="password">
+            <div class="error-message" id="passwordError"></div>
+          </div>
+          <div class="input-box">
+            <span class="details">Confirm Password</span>
+            <input type="password" placeholder="Confirm your password" id="confirmPassword">
+            <div class="error-message" id="confirmPasswordError"></div>
+          </div>
+
+        </div>
+        <div class="gender-details">
+          <input type="radio" name="gender" id="dot-1">
+          <input type="radio" name="gender" id="dot-2">
+          <input type="radio" name="gender" id="dot-3">
+          <span class="gender-title">Gender</span>
+          <div class="category">
+            <label for="dot-1">
+              <span class="dot one"></span>
+              <span class="gender">Male</span>
+            </label>
+            <label for="dot-2">
+              <span class="dot two"></span>
+              <span class="gender">Female</span>
+            </label>
+            <label for="dot-3">
+              <span class="dot three"></span>
+              <span class="gender">Prefer not to say</span>
+            </label>
+            <div class="error-message" id="genderError"></div> <!-- Error message for gender selection -->
+          </div>
+        </div>
+        <div class="button">
+          <input type="submit" value="Register">
+        </div>
+        <div class="center">
+          <h3>Already Have an account?</h3>
+          <a href="{{url_for('vol.vol_login')}}">Click Here</a>
+        </div>
+      </form>
+    </div>
+  </div>
+
+
+
+  <script src="{{ url_for('static', filename='vol/scripts/vol_reg.js') }}"> </script>
+
+  <script src="
+  https://cdn.jsdelivr.net/npm/sweetalert2@11.10.7/dist/sweetalert2.all.min.js
+  "></script>
+  <script>
+    {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+        {% for category, message in messages %}
+          Swal.fire({
+            icon: '{{ category }}',
+            title: '{{ message }}',
+            showConfirmButton: false,
+            timer: 3000  // Display time in milliseconds (adjust as needed)
+          });
+        {% endfor %}
+      {% endif %}
+    {% endwith %}
+  </script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,78 @@
+{% extends "admin/admin_base.html" %}
+
+{% block title %}
+Funds Collected
+{% endblock %}
+
+{% block styles %}  
+<link rel="stylesheet" href="{{ url_for('static', filename='admin/styles/funds_collected.css') }}">
+{% endblock %}
+
+{% block content %}
+<div class="content-wrapper">
+  <div class="card mb-3">
+    <div class="card-header">
+      <i class="fa fa-table"></i> Data Table Example
+    </div>
+    <div class="card-body">
+
+      <h3>Volunteer Funds</h3>
+      <div class="table-responsive">
+        <table class="table table-bordered" id="volfund" width="100%" cellspacing="0">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Transaction ID</th>
+              <th>Amount</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Rahul</td>
+              <td>987567483642</td>
+              <td>10,000</td>
+            </tr>
+            <tr>
+              <td>Rahu</td>
+              <td>987567483123</td>
+              <td>1000</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="card-body">
+
+      <h3>Organization Funds</h3>
+      <div class="table-responsive">
+        <table class="table table-bordered" id="orgfund" width="100%" cellspacing="0">
+          <thead>
+            <tr>
+              <th>Organization Name</th>
+              <th>Transaction ID</th>
+              <th>Amount</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>National Helping Organization</td>
+              <td>987567483642</td>
+              <td>10,000</td>
+            </tr>
+            <tr>
+              <td>TN Hand-in-Hand Foundation</td>
+              <td>987567483123</td>
+              <td>1000</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+</div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='admin/scripts/funds_collected.js') }}"></script>
+{% endblock %}

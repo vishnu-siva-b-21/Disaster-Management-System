@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Organization - Dashboard</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet"
+    href="{{ url_for('static', filename='org/vendors/owl-carousel/styles/owl.carousel.min.css') }}">
+  <link rel="stylesheet"
+    href="{{ url_for('static', filename='org/vendors/owl-carousel/styles/owl.theme.default.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='org/vendors/mdi/styles/materialdesignicons.min.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='org/vendors/aos/styles/aos.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='org/styles/style.min.css') }}">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/styles2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap"
+    rel="stylesheet">
+  <style>
+    body {
+      overflow-x: hidden !important;
+    }
+
+    .marquee {
+      width: 100%;
+      margin: 0 auto;
+      white-space: nowrap;
+      overflow-x: hidden;
+      position: absolute;
+      left: 0vh;
+      font-size: 5rem;
+      font-weight: 400;
+      color: rgb(0, 13, 89);
+
+
+
+      font-family: "Noto Sans", sans-serif;
+
+      margin-top: 7vh;
+
+    }
+
+
+    .marquee span {
+      display: inline-block;
+      padding-left: 100%;
+      animation: marquee 30s linear infinite;
+    }
+
+    .marquee2 span {
+      animation-delay: 35s;
+    }
+
+    @keyframes marquee {
+      0% {
+        transform: translate(0, 0);
+      }
+
+      100% {
+        transform: translate(-100%, 0);
+      }
+    }
+
+    @media (max-width:1000px) {
+      .marquee {
+        margin-top: 7vh !important;
+        font-size: 4rem;
+
+      }
+    }
+
+    @media (max-width:650px) {
+      .marquee {
+        margin-top: 5vh;
+        margin-bottom: 5vh;
+        font-size: 3rem;
+      }
+    }
+
+
+    .content-wrapper {
+      background-color: #80D0C7;
+      margin-top: -40vh;
+    }
+
+    .container {
+      margin-bottom: 5vh;
+    }
+
+    .header-small .navbar.fixed-top {
+      height: 12vh;
+      padding-top: 8vh;
+    }
+
+    .btn {
+      textwrap: nowrap;
+    }
+
+    .img-fluids {
+      height: 100vh;
+      width: 107vw;
+      position: relative;
+      left: -17.8vw;
+      top: -35vh;
+      overflow-x: hidden;
+    }
+
+    .inner-content {
+      position: relative;
+      top: 20vh;
+    }
+
+    .container h1 {
+      position: relative;
+      top: -10vh;
+      font-size: 50px !important;
+    }
+
+    .img-fluids {
+      width: 100vw;
+      /* Set width to 100% of viewport width */
+    }
+
+
+    .container h6 {
+      position: relative;
+      font-weight: 700 !important;
+      font-size: 20px;
+    }
+
+    .navbar-expand-lg>.container {
+      margin-top: -7vh;
+      padding: 2rem;
+    }
+
+    .img_container {
+      width: 100vw;
+    }
+
+    .banner {
+      width: 100vw;
+    }
+
+    #case-studies-section {
+      padding-top: 5vh !important;
+    }
+
+    #feedback-sections {
+      padding-top: 10vh !important;
+    }
+
+    #digital-marketing-section {
+      padding-top: 10vh !important;
+    }
+
+    #contact-section {
+      padding-top: 5vh !important;
+    }
+  </style>
+</head>
+
+<body id="body" data-spy="scroll" data-target=".navbar" data-offset="100">
+  <header id="header-section">
+    <nav class="navbar navbar-expand-lg pl-3 pl-sm-0" id="navbar">
+      <div class="container">
+        <div class="navbar-brand-wrapper d-flex">
+
+          <img src="{{ url_for('static', filename='org/images/Logo.png') }}" alt="" style="width: 5rem;">
+          <h2 class="team" style="margin-top: 3vh;">Astral Tech</h2>
+
+        </div>
+        <div class="collapse navbar-collapse navbar-menu-wrapper" id="navbarSupportedContent">
+          <ul class="navbar-nav align-items-lg-center align-items-start ml-auto">
+            <li class="d-flex align-items-center justify-content-between pl-4 pl-lg-0">
+              <div class="navbar-collapse-logo">
+                <img src="{{ url_for('static', filename='org/images/Group2.svg') }}" alt="">
+              </div>
+              <button class="navbar-toggler close-button" type="button" data-toggle="collapse"
+                data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="mdi mdi-close navbar-toggler-icon pl-5"></span>
+              </button>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#header-section">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#features-section">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#digital-marketing-section">Blog</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#case-studies-section">Leading Sponsers</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#feedback-sections">Testimonials</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#contact-section">Contact</a>
+            </li>
+            <li>
+              <a href="{{ url_for('org.org_login')}}">
+                <button class="btn btn-rounded btn-outline-danger">Login</button>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+  <div class="banner">
+    <div class="container img_container">
+      <div class="inner-content">
+        <h1 class="font-weight-semibold">Welcome !</h1>
+        <h6 class="font-weight-normal text-muted pb-3">Astral Tech is an Innovative Crowdfunding platform
+          launched in 2024 by a group of enthusiastic Youngsters
+          It started as a tool to fund rural and but has evolved to fund the healthcare sector, social causes and
+          disaster relief.</h6>
+      </div>
+
+
+      <img src="{{ url_for('static', filename='org/images/org-bg.webp') }}" alt="" class="img-fluids">
+    </div>
+  </div>
+  <div class="content-wrapper">
+    <div class="container">
+      <section class="features-overview" id="features-section">
+        <div class="content-header">
+          <h2>How does We works?</h2>
+        </div>
+        <div class="d-md-flex justify-content-between">
+          <div class="grid-margin d-flex justify-content-start">
+            <div class="features-width">
+              <img src="{{ url_for('static', filename='org/images/Group12.svg') }}" alt="" class="img-icons">
+              <h5 class="py-3">Who We <br> are?</h5>
+              <p class="text-muted">We specialize in deploying advanced technology to provide rapid assistance and
+                support to those affected by natural disasters, offering
+                innovative solutions and expert aid to save lives and alleviate suffering</p>
+            </div>
+          </div>
+          <div class="grid-margin d-flex justify-content-center">
+            <div class="features-width">
+              <img src="{{ url_for('static', filename='org/images/Group7.svg') }}" alt="" class="img-icons">
+              <h5 class="py-3">What we <br> do?</h5>
+              <p class="text-muted">Calling all funding organizations and volunteers! Join us in saving lives and aiding
+                communities affected by natural disasters.</p>
+
+            </div>
+          </div>
+          <div class="grid-margin d-flex justify-content-end">
+            <div class="features-width">
+              <img src="{{ url_for('static', filename='org/images/Group5.svg') }}" alt="" class="img-icons">
+              <h5 class="py-3">Come Join <br>up</h5>
+              <p class="text-muted">Astral Tech is a dynamic online platform designed to streamline disaster management
+                efforts by connecting victims, volunteers, and fund organizations</p>
+
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="digital-marketing-service" id="digital-marketing-section">
+        <div class="row align-items-center">
+          <div class="col-12 col-lg-7 grid-margin grid-margin-lg-0" data-aos="fade-right">
+            <h3 class="m-0">Give Hands for People in Need!</h3>
+            <div class="col-lg-7 col-xl-6 p-0">
+              <p class="py-4 m-0 text-muted">Calling all funding organizations and volunteers! Join us in saving lives
+                and aiding communities affected by natural disasters.</p>
+            </div>
+          </div>
+          <div class="col-12 col-lg-5 p-0 img-digital grid-margin grid-margin-lg-0" data-aos="fade-left">
+            <img src="{{ url_for('static', filename='org/images/hand.jpg') }}" alt="" class="img-fluid">
+          </div>
+        </div>
+        <div class="row align-items-center">
+          <div class="col-12 col-lg-7 text-center flex-item grid-margin" data-aos="fade-right">
+            <img src="{{ url_for('static', filename='org/images/hand2.jpg') }}" alt="" style="width: 70%;"
+              class="img-fluid">
+          </div>
+          <div class="col-12 col-lg-5 flex-item grid-margin" data-aos="fade-left">
+            <h3 class="m-0">We doesn't take any further commissions</h3>
+            <div class="col-lg-9 col-xl-8 p-0">
+              <p class="py-4 m-0 text-muted">Some of the advantages this platform offers include
+                no additional fee on donations, no time limit on campaigns.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+
+      <section class="case-studies" id="case-studies-section">
+        <div class="row grid-margin pb-5">
+          <div class="col-12 text-center">
+            <h2>Leading Sponsors </h2>
+          </div>
+
+          <p class="marquee">
+            <span style="font-family: Poppins, sans-serif; color:#e77408;">{% for org in orgs %}
+              {% if org == orgs[-1] %}
+              {{org.get('org_name')}}
+              {% else %}
+              {{org.get('org_name')}} -
+              {% endif %}
+              {% endfor %}</span>
+          </p>
+        </div>
+
+      </section>
+
+
+      <section class="customer-feedback" id="feedback-sections">
+        <div class="row">
+          <div class="col-12 text-center pb-5">
+            <h2>Our Victims Say</h2>
+          </div>
+          <div class="owl-carousel owl-theme grid-margin">
+            <div class="card customer-cards">
+              <div class="card-body">
+                <div class="text-center">
+                  <img src="{{ url_for('static', filename='org/images/user-64.png') }}" width="89" height="89" alt=""
+                    class="img-customer">
+                  <p class="m-0 py-3 text-muted">"The volunteers from Astral Tech were our lifeline during the disaster.
+                    Their quick response and selfless dedication saved us when we needed it most."</p>
+                  <div class="content-divider m-auto"></div>
+                  <h6 class="card-title pt-3">Mahitha</h6>
+                  <h6 class="customer-designation text-muted m-0"> Chennai</h6>
+                </div>
+              </div>
+            </div>
+            <div class="card customer-cards">
+              <div class="card-body">
+                <div class="text-center">
+                  <img src="{{ url_for('static', filename='org/images/user-64.png') }}" width="89" height="89" alt=""
+                    class="img-customer">
+                  <p class="m-0 py-3 text-muted">"I cannot express enough gratitude to the Astral Tech volunteers who
+                    rescued us.
+                    Their professionalism and compassion gave us hope in the midst of chaos."</p>
+                  <div class="content-divider m-auto"></div>
+                  <h6 class="card-title pt-3"> Naman</h6>
+                  <h6 class="customer-designation text-muted m-0"> Hosur</h6>
+                </div>
+              </div>
+            </div>
+            <div class="card customer-cards">
+              <div class="card-body">
+                <div class="text-center">
+                  <img src="{{ url_for('static', filename='org/images/user-64.png') }}" width="89" height="89" alt=""
+                    class="img-customer">
+                  <p class="m-0 py-3 text-muted">"Thanks to Astral Tech's volunteers, my family and I are safe today.
+                    Their bravery and expertise in disaster response are truly commendable." </p>
+                  <div class="content-divider m-auto"></div>
+                  <h6 class="card-title pt-3"> Rajesh</h6>
+                  <h6 class="customer-designation text-muted m-0"> Trichy</h6>
+                </div>
+              </div>
+            </div>
+            <div class="card customer-cards">
+              <div class="card-body">
+                <div class="text-center">
+                  <img src="{{ url_for('static', filename='org/images/user-64.png') }}" width="89" height="89" alt=""
+                    class="img-customer">
+                  <p class="m-0 py-3 text-muted">"The volunteers from Astral Tech showed up when all seemed lost.
+                    Their organized efforts and unwavering support pulled us through the disaster's aftermath." </p>
+                  <div class="content-divider m-auto"></div>
+                  <h6 class="card-title pt-3">Surya</h6>
+                  <h6 class="customer-designation text-muted m-0">Madurai</h6>
+                </div>
+              </div>
+            </div>
+            <div class="card customer-cards">
+              <div class="card-body">
+                <div class="text-center">
+                  <img src="{{ url_for('static', filename='org/images/user-64.png') }}" width="89" height="89" alt=""
+                    class="img-customer">
+                  <p class="m-0 py-3 text-muted"> "Being saved by the Astral Tech volunteers was a blessing.
+                    Their tireless efforts and commitment to helping others are remarkable."</p>
+                  <div class="content-divider m-auto"></div>
+                  <h6 class="card-title pt-3">Kanaga
+                  </h6>
+                  <h6 class="customer-designation text-muted m-0">Neiveli</h6>
+                </div>
+              </div>
+            </div>
+            <div class="card customer-cards">
+              <div class="card-body">
+                <div class="text-center">
+                  <img src="{{ url_for('static', filename='org/images/user-64.png') }}" width="89" height="89" alt=""
+                    class="img-customer">
+                  <p class="m-0 py-3 text-muted"> "Astral Tech's volunteers went above and beyond
+                    to ensure our safety during the disaster. We owe them our lives."
+                  </p>
+                  <div class="content-divider m-auto"></div>
+                  <h6 class="card-title pt-3">Chidambaram</h6>
+                  <h6 class="customer-designation text-muted m-0"> Thoothukudi</h6>
+                </div>
+              </div>
+            </div>
+            <div class="card customer-cards">
+              <div class="card-body">
+                <div class="text-center">
+                  <img src="{{ url_for('static', filename='org/images/user-64.png') }}" width="89" height="89" alt=""
+                    class="img-customer">
+                  <p class="m-0 py-3 text-muted"> "The volunteers from Astral Tech were our guardian angels during the
+                    disaster.
+                    Their kindness and resilience gave us hope amidst the devastation."
+                  </p>
+                  <div class="content-divider m-auto"></div>
+                  <h6 class="card-title pt-3">Mahi</h6>
+                  <h6 class="customer-designation text-muted m-0">Vellore</h6>
+                </div>
+              </div>
+            </div>
+            <div class="card customer-cards">
+              <div class="card-body">
+                <div class="text-center">
+                  <img src="{{ url_for('static', filename='org/images/user-64.png') }}" width="89" height="89" alt=""
+                    class="img-customer">
+                  <p class="m-0 py-3 text-muted">"We are forever grateful to the Astral Tech volunteers for rescuing us
+                    from the disaster's grip. Their bravery and sacrifice will never be forgotten."
+                  </p>
+                  <div class="content-divider m-auto"></div>
+                  <h6 class="card-title pt-3"> Seenu</h6>
+                  <h6 class="customer-designation text-muted m-0">Chennai</h6>
+                </div>
+              </div>
+            </div>
+            <div class="card customer-cards">
+              <div class="card-body">
+                <div class="text-center">
+                  <img src="{{ url_for('static', filename='org/images/user-64.png') }}" width="89" height="89" alt=""
+                    class="img-customer">
+                  <p class="m-0 py-3 text-muted">"The timely intervention of Astral Tech's volunteers saved countless
+                    lives, including mine.
+                    Words cannot express the depth of our appreciation for their heroic actions."</p>
+                  <div class="content-divider m-auto"></div>
+                  <h6 class="card-title pt-3"> Raghu</h6>
+                  <h6 class="customer-designation text-muted m-0"> Tiruttani</h6>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="contact-us" id="contact-section">
+        <div class="contact-us-bgimage grid-margin">
+          <div class="pb-4">
+            <h4 class="px-3 px-md-0 m-0" data-aos="fade-down">If You Have Already Account </h4>
+            <h4 class="pt-1" data-aos="fade-down"> Astral Tech</h4>
+          </div>
+          <div data-aos="fade-up">
+            <a href="{{ url_for('org.org_login')}}">
+              <button class=" btn btn-rounded btn-outline-danger">Login Here</button>
+            </a>
+          </div>
+        </div>
+      </section>
+      <section class="contact-details" id="contact-details-section">
+        <div class="row text-center text-md-left">
+          <div class="col-12 col-md-6 col-lg-4 grid-margin">
+
+            <img src="{{ url_for('static', filename='org/images/Logo.png') }}" alt="logo" style="width: 3rem;"><span
+              style="display: inline;">
+              <h4>Astral Tech</h4>
+            </span>
+
+
+            <div class="pt-2">
+              <p class="text-muted m-0">astraltech@gmail.com</p>
+              <p class="text-muted m-0">+91 7708701121</p>
+            </div>
+          </div>
+
+          <div class="col-12 col-md-6 col-lg-4 grid-margin">
+            <h5 class="pb-2">Our Guidelines</h5>
+            <a href="#">
+              <p class="m-0 pb-2">Terms</p>
+            </a>
+            <a href="#">
+              <p class="m-0 pt-1 pb-2">Privacy policy</p>
+            </a>
+            <a href="#">
+              <p class="m-0 pt-1 pb-2">Cookie Policy</p>
+            </a>
+            <a href="#">
+              <p class="m-0 pt-1">Discover</p>
+            </a>
+          </div>
+          <div class="col-12 col-md-6 col-lg-4 grid-margin">
+            <h5 class="pb-2">Our address</h5>
+            <p class="text-muted">
+            <p>Astral Tech,<br> No.18/25A SriNagar colony,<br>Middle Street , Kolathur , Chennai 600099</p>
+            <div class="d-flex justify-content-center justify-content-md-start">
+              <a href="#"><span class="mdi mdi-facebook"></span></a>
+              <a href="#"><span class="mdi mdi-twitter"></span></a>
+              <a href="#"><span class="mdi mdi-instagram"></span></a>
+              <a href="#"><span class="mdi mdi-linkedin"></span></a>
+            </div>
+          </div>
+        </div>
+      </section>
+      <footer class="border-top">
+        <p class="text-center text-muted pt-4">Copyright ©<a href="https://www.bootstrapdash.com/" class="px-1">Astral
+            Tech</a>All rights reserved.</p>
+      </footer>
+    </div>
+  </div>
+  <script src="{{ url_for('static', filename='org/vendors/jquery/jquery.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='org/vendors/bootstrap/bootstrap.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='org/vendors/owl-carousel/scripts/owl.carousel.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='org/vendors/aos/scripts/aos.js') }}"></script>
+  <script src="{{ url_for('static', filename='org/scripts/landingpage.js') }}"></script>
+
+  <script src="
+  https://cdn.jsdelivr.net/npm/sweetalert2@11.10.7/dist/sweetalert2.all.min.js
+  "></script>
+  <script>
+    {% with messages = get_flashed_messages(with_categories = true) %}
+    {% if messages %}
+    {% for category, message in messages %}
+    Swal.fire({
+      icon: '{{ category }}',
+      title: '{{ message }}',
+      showConfirmButton: false,
+      timer: 3000  // Display time in milliseconds (adjust as needed)
+    });
+    {% endfor %}
+    {% endif %}
+    {% endwith %}
+  </script>
+</body>
+
+</html>

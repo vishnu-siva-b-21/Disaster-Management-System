@@ -1,0 +1,45 @@
+{% extends "admin/admin_base.html" %}
+
+{% block title %}
+Affected People
+{% endblock %}
+
+{% block styles %}
+<link rel="stylesheet" href="{{ url_for('static', filename='admin/styles/affected_people.css') }}">
+{% endblock %}
+
+{% block content %}
+<div class="content-wrapper">
+  <div class="card mb-3">
+    <div class="card-header">
+      <i class="fa fa-table"></i> Data Table Example</div>
+    <div class="card-body">
+      <h3>Victims</h3>
+      <div class="table-responsive">
+        <table class="table table-bordered" id="in_needTable" width="100%" cellspacing="0">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Age</th>
+              <th>Area</th>
+              <th>Pin Code</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Ragav</td>
+              <td>32</td>
+              <td>Shollinganallur</td>
+              <td>600119</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+</div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='admin/styles/affected_people.js') }}"></script>
+{% endblock %}

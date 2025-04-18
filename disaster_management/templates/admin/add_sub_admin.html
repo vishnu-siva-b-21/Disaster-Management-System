@@ -1,0 +1,294 @@
+{% extends "admin/admin_base.html" %}
+
+{% block title %}
+Add Secondary Admin
+{% endblock %}
+
+{% block styles %}
+<link rel="stylesheet" href="{{ url_for('static', filename='sub_admin/styles/addVol.css') }}">
+<style>
+  .content-wrapper{
+    background-color: #80D0C7;
+  }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="content-wrapper">
+  <div class="container">
+      <div class="title">Add Sub Admin</div>
+      <div class="content">
+        <form action="{{ url_for('admin.add_sub_admin') }}" method="POST" id="registrationForm">
+          <div class="user-details">
+            <div class="input-box">
+              <span class="details">Name</span>
+              <input type="text" placeholder="Enter your name" name="name" id="name">
+              <div class="error-message" id="nameError"></div>
+            </div>
+            <div class="input-box">
+              <span class="details">Age</span>
+              <input type="text" placeholder="Enter your Age" name="age" id="age">
+              <div class="error-message" id="ageError"></div>
+            </div>
+            <div class="input-box">
+              <span class="details">Email</span>
+              <input type="text" placeholder="Enter your Email" name="email" id="email">
+              <div class="error-message" id="emailError"></div>
+            </div>
+            <div class="input-box">
+              <span class="details">Phone Number</span>
+              <input type="text" placeholder="Enter your Phone Number" name="phno" id="phoneNumber">
+              <div class="error-message" id="phoneNumberError"></div>
+            </div>
+            <div class="input-box">
+              <span class="details">Area</span>
+              <input type="text" placeholder="Enter your Area" name="area" id="area">
+              <div class="error-message" id="areaError"></div>
+            </div>
+
+            <div class="input-box">
+              <span class="details">PinCode</span>
+              <input type="text" placeholder="Enter Your PinCode" name="pincode" id="pinCode">
+              <div class="error-message" id="pinCodeError"></div>
+            </div>
+            <div class="input-box">
+              <span class="details">Password</span>
+              <input type="password" placeholder="Enter your password" name="password" id="password">
+              <div class="error-message" id="passwordError"></div>
+            </div>
+            <div class="input-box">
+              <span class="details">Confirm Password</span>
+              <input type="password" placeholder="Confirm your password" id="confirmPassword">
+              <div class="error-message" id="confirmPasswordError"></div>
+            </div>
+  
+          </div>
+          <div class="gender-details">
+            <input type="radio" name="gender" value="male" id="dot-1">
+            <input type="radio" name="gender" value="female" id="dot-2">
+            <input type="radio" name="gender" value="other" id="dot-3">
+            <span class="gender-title">Gender</span>
+            <div class="category">
+              <label for="dot-1">
+                <span class="dot one"></span>
+                <span class="gender">Male</span>
+              </label>
+              <label for="dot-2">
+                <span class="dot two"></span>
+                <span class="gender">Female</span>
+              </label>
+              <label for="dot-3">
+                <span class="dot three"></span>
+                <span class="gender">Prefer not to say</span>
+              </label>
+              <div class="error-message" id="genderError"></div> <!-- Error message for gender selection -->
+            </div>
+          </div>
+          <div class="button">
+            <input type="submit" value="Register">
+          </div>
+        </form>
+      </div>
+    </div>
+    </div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+  const form = document.getElementById('registrationForm');
+  form.addEventListener('submit', function (event) {
+    event.preventDefault();
+    if (validateForm()) {
+      form.submit();
+    }
+  });
+  
+  function validateForm() {
+    let isValid = true;
+  
+    const name = document.getElementById('name').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const age = document.getElementById('age').value.trim();
+    const phoneNumber = document.getElementById('phoneNumber').value.trim();
+    const area = document.getElementById('area').value.trim();
+    const pinCode = document.getElementById('pinCode').value.trim();
+    const password = document.getElementById('password').value;
+    const confirmPassword = document.getElementById('confirmPassword').value;
+  
+  
+    // Validation for Name
+    if (name === '') {
+      isValid = false;
+      document.getElementById('nameError').innerText = 'Name is required';
+      document.getElementById('name').style.borderColor = 'red';
+    } else if (!/^[a-zA-Z ]+$/.test(name)) {
+      isValid = false;
+      document.getElementById('nameError').innerText = 'Invalid Name Format';
+      document.getElementById('name').style.borderColor = 'red';
+    } else {
+      document.getElementById('nameError').innerText = '';
+      document.getElementById('name').style.borderColor = '';
+    }
+  
+    if (email === '') {
+      isValid = false;
+      document.getElementById('emailError').innerText = 'Email is required';
+      document.getElementById('email').style.borderColor = 'red';
+    } else if (!/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/.test(email)) {
+      isValid = false;
+      document.getElementById('emailError').innerText = 'Invalid email Format';
+      document.getElementById('email').style.borderColor = 'red';
+    } else {
+      document.getElementById('emailError').innerText = '';
+      document.getElementById('email').style.borderColor = '';
+    }
+  
+    // Validation for Age
+    if (age === '') {
+      isValid = false;
+      document.getElementById('ageError').innerText = 'Age is required';
+      document.getElementById('age').style.borderColor = 'red';
+    } else if (isNaN(age) || age < 1 || age > 100) {
+      isValid = false;
+      document.getElementById('ageError').innerText = 'Invalid age';
+      document.getElementById('age').style.borderColor = 'red';
+    } else {
+      document.getElementById('ageError').innerText = '';
+      document.getElementById('age').style.borderColor = '';
+    }
+  
+    // Validation for Phone Number
+    if (phoneNumber === '') {
+      isValid = false;
+      document.getElementById('phoneNumberError').innerText = 'Phone Number is required';
+      document.getElementById('phoneNumber').style.borderColor = 'red';
+    } else if (!/^\d{10}$/.test(phoneNumber)) {
+      isValid = false;
+      document.getElementById('phoneNumberError').innerText = 'Phone Number must be 10 digits';
+      document.getElementById('phoneNumber').style.borderColor = 'red';
+    } else {
+      document.getElementById('phoneNumberError').innerText = '';
+      document.getElementById('phoneNumber').style.borderColor = '';
+    }
+  
+    // Validation for Area
+    if (area === '') {
+      isValid = false;
+      document.getElementById('areaError').innerText = 'Area is required';
+      document.getElementById('area').style.borderColor = 'red';
+    } else if (!/^[a-zA-Z ]+$/.test(area)) {
+      isValid = false;
+      document.getElementById('areaError').innerText = 'Invalid Area Name';
+      document.getElementById('area').style.borderColor = 'red';
+    } else {
+      document.getElementById('areaError').innerText = '';
+      document.getElementById('area').style.borderColor = '';
+    }
+  
+     // Validation for PinCode
+     if (pinCode === '') {
+      isValid = false;
+      document.getElementById('pinCodeError').innerText = 'PinCode is required';
+      document.getElementById('pinCode').style.borderColor = 'red';
+  } else if (isNaN(pinCode) || pinCode.length !== 6) {
+      isValid = false;
+      document.getElementById('pinCodeError').innerText = 'Invalid PinCode';
+      document.getElementById('pinCode').style.borderColor = 'red';
+  } else {
+      document.getElementById('pinCodeError').innerText = '';
+      document.getElementById('pinCode').style.borderColor = '';
+  }
+  // Validation for Password
+  if (password === '') {
+    isValid = false;
+    document.getElementById('passwordError').innerText = 'Password is required';
+    document.getElementById('password').style.borderColor = 'red';
+  } else if (!/(?=.*[A-Z])/.test(password)) {
+    isValid = false;
+    document.getElementById('passwordError').innerText = 'Password must contain at least one uppercase letter';
+    document.getElementById('password').style.borderColor = 'red';
+  } else if (!/(?=.*[a-z])/.test(password)) {
+    isValid = false;
+    document.getElementById('passwordError').innerText = 'Password must contain at least one lowercase letter';
+    document.getElementById('password').style.borderColor = 'red';
+  } else if (!/(?=.*\d)/.test(password)) {
+    isValid = false;
+    document.getElementById('passwordError').innerText = 'Password must contain at least one digit';
+    document.getElementById('password').style.borderColor = 'red';
+  } else if (!/(?=.*[\W_])/.test(password)) {
+    isValid = false;
+    document.getElementById('passwordError').innerText = 'Password must contain at least one symbol';
+    document.getElementById('password').style.borderColor = 'red';
+  } else if (password.length < 8) {
+    isValid = false;
+    document.getElementById('passwordError').innerText = 'Password must be at least 8 characters long';
+    document.getElementById('password').style.borderColor = 'red';
+  } else {
+    document.getElementById('passwordError').innerText = '';
+    document.getElementById('password').style.borderColor = '';
+  }
+  
+  
+  // Validation for Confirm Password
+  if (confirmPassword === '') {
+      isValid = false;
+      document.getElementById('confirmPasswordError').innerText = 'Confirm Password is required';
+      document.getElementById('confirmPassword').style.borderColor = 'red';
+  } else if (confirmPassword !== password) {
+      isValid = false;
+      document.getElementById('confirmPasswordError').innerText = 'Passwords do not match';
+      document.getElementById('confirmPassword').style.borderColor = 'red';
+  } else {
+      document.getElementById('confirmPasswordError').innerText = '';
+      document.getElementById('confirmPassword').style.borderColor = '';
+  }
+  
+  
+    return isValid;
+  }
+  
+  
+  
+  // Gender selection validation
+  document.getElementById("registrationForm").addEventListener("submit", function(event) {
+    var genderInputs = document.getElementsByName("gender");
+    var genderSelected = false;
+  
+    for (var i = 0; i < genderInputs.length; i++) {
+      if (genderInputs[i].checked) {
+        genderSelected = true;
+        break;
+      }
+    }
+  
+    if (!genderSelected) {
+      document.getElementById("genderError").textContent = "Please select a gender.";
+      event.preventDefault(); // Prevent form submission
+    } else {
+      document.getElementById("genderError").textContent = ""; // Clear error message if gender is selected
+    }
+  });
+  
+  
+  document.getElementById("registrationForm").addEventListener("submit", function(event) {
+    var genderInputs = document.getElementsByName("gender");
+    var genderSelected = false;
+  
+    for (var i = 0; i < genderInputs.length; i++) {
+      if (genderInputs[i].checked) {
+        genderSelected = true;
+        break;
+      }
+    }
+  
+    if (!genderSelected) {
+      document.getElementById("genderError").textContent = "Please select a gender.";
+      event.preventDefault(); // Prevent form submission
+    } else {
+      document.getElementById("genderError").textContent = ""; // Clear error message if gender is selected
+    }
+  });
+  </script>
+  <script src="{{ url_for('static', filename='sub_admin/scripts/addVol.js') }}"></script>
+  
+{% endblock %}

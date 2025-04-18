@@ -1,0 +1,66 @@
+{% extends "admin/admin_base.html" %}
+
+{% block title %}
+Volunteer Details
+{% endblock %}
+
+{% block styles %}
+<link rel="stylesheet" href="{{ url_for('static', filename='admin/styles/vol_reg.css') }}">
+{% endblock %}
+
+{% block content %}
+<div class="content-wrapper">
+  <div class="card mb-3">
+    <div class="card-header">
+      <i class="fa fa-table"></i> 
+    </div>
+    <div class="card-body">
+      <h3>Volunteer Details</h3>       
+      <div class="table-responsive">
+        <table class="table table-bordered" id="volunteerTable" width="100%" cellspacing="0">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Age</th>
+              <th>gender</th>
+              <th>Phone Number</th>
+              <th>Email</th>
+              <th>Skills</th>
+              <th>Area</th>
+              <th>Pin Code</th>
+              <th>Mentor</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for vol in vol_details %}
+              <tr>
+                <td>{{vol.get('name')}}</td>
+                <td>{{vol.get('age')}}</td>
+                <td>{{vol.get('gender')}}</td>
+                <td>{{vol.get('phone_no')}}</td>
+                <td>{{vol.get('email')}}</td>
+                <td>{{vol.get('skills')}}</td>
+                <td>{{vol.get('area')}}</td>
+                <td>{{vol.get('pincode')}}</td>
+                <td>
+                  {% if vol.get('sub_admin_email') %}
+                    {{vol.get('sub_admin_email')}}
+                  {% else %}
+                    Self-Volunteer
+                  {% endif %}
+                </td>
+              </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='sub_admin/scripts/vol_details.js') }}"></script>
+{% endblock %}
+
+
