@@ -97,6 +97,19 @@ After installation, start the MongoDB server locally on default port 27017.
 
 ### 4. Run the Flask Application
 
+If you're running the project **locally**, make sure to:
+
+- ✅ **Uncomment** the following line in `app.py`:
+  ```python
+  app.run(debug=1)
+  ```
+- ❌ Comment out the production deployment line:
+  ```python
+  # serve(app, host="0.0.0.0", port=8000)
+  ```
+
+Then, run the Flask app using:
+
 ```bash
 python app.py
 ```
