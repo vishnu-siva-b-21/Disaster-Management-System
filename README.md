@@ -101,14 +101,6 @@ After installation, start the MongoDB server locally on default port 27017.
 python app.py
 ```
 
-### 5. Access the Website
-
-Open your browser and go to: [http://127.0.0.1:5000](http://127.0.0.1:5000)  
-✅ Default Admin Credentials (for demo/testing)
-
-- Email: admin@gmail.com
-- Password: admin
-
 ---
 
 <a id="future-enhancements"></a>
